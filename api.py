@@ -1,4 +1,5 @@
 import numpy as np
+from collections import Counter
 
 def get_primes(n=100):
     '''
@@ -99,3 +100,16 @@ def is_palindrome(x):
         boo *= x[i] == x[-(i+1)]
 
     return boo
+
+def is_pandigital(x, up_to=9):
+    '''
+    Pandigital are numbers that contains all digits like 123456789.
+
+    :param x:
+    :param up_to: Not implemented yet
+    :return:
+    '''
+    arr_char = list(str(x))
+    if np.sum([int(n) for n in arr_char]) == 45:
+        return not any(np.array(Counter(arr_char).values()) > 1)
+    return False
